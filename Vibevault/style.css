@@ -15,5 +15,7 @@ body {
 .hero {
     background-image: url(./assets/hero-bg.png);
     background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 45rem;
 }
