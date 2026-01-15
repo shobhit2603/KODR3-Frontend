@@ -307,8 +307,12 @@
             class="h-110 w-1/4 bg-black rounded-4xl p-5 flex flex-col justify-between bg-[url('./assets/p1.jpg')] bg-cover bg-center"
           >
             <div class="flex justify-between">
-              <button>hello</button>
-              <button>wassup</button>
+              <button class="border rounded-full px-4 py-3">
+                <i class="ri-arrow-right-up-line text-lg"></i>
+              </button>
+              <button class="rounded-full bg-white px-4 text-black text-xl">
+                <i class="ri-heart-line"></i>
+              </button>
             </div>
             <div>
               <p class="flex">
@@ -326,11 +330,11 @@
               </p>
               <div class="flex justify-between">
                 <p class="font-medium text-xl">
-                  $420<sup class="text-white/60 text-xs pl-1 font-thin"
-                    >%580</sup
+                  $420<sup class="text-white/60 text-xs pl-1 font-thin line-through"
+                    >$580</sup
                   >
                 </p>
-                <p>4.85</p>
+                <p><i class="ri-asterisk text-[#ebd28c]"></i> 4.85</p>
               </div>
             </div>
           </div>
@@ -338,8 +342,12 @@
             class="h-110 w-1/4 bg-black rounded-4xl p-5 flex flex-col justify-between bg-[url('./assets/p2.jpg')] bg-cover bg-center"
           >
             <div class="flex justify-between">
-              <button>hello</button>
-              <button>wassup</button>
+              <button class="border rounded-full px-4 py-3">
+                <i class="ri-arrow-right-up-line text-lg"></i>
+              </button>
+              <button class="rounded-full bg-white px-4 text-black text-xl">
+                <i class="ri-heart-line"></i>
+              </button>
             </div>
             <div>
               <p class="flex">
@@ -357,42 +365,33 @@
               </p>
               <div class="flex justify-between">
                 <p class="font-medium text-xl">
-                  $420<sup class="text-white/60 text-xs pl-1 font-thin"
-                    >%580</sup
+                  $420<sup class="text-white/60 text-xs pl-1 font-thin line-through"
+                    >$580</sup
                   >
                 </p>
-                <p>4.85</p>
+                <p><i class="ri-asterisk text-[#ebd28c]"></i> 4.85</p>
               </div>
             </div>
           </div>
           <div
-            class="h-110 w-1/4 bg-black rounded-4xl p-5 flex flex-col justify-between bg-[url('./assets/p3.jpg')] bg-cover bg-center"
+            class="grayscale h-110 w-1/4 bg-black rounded-4xl p-5 flex flex-col justify-between bg-[url('./assets/p3.jpg')] bg-cover bg-center"
           >
-            <div class="flex justify-between">
-              <button>hello</button>
-              <button>wassup</button>
-            </div>
             <div>
               <p class="flex">
-                <span class="px-3 bg-[#edd18b] rounded-full text-black"
-                  >Sale</span
-                >
+                <span class="px-3 border rounded-full">Best</span>
                 <span class="px-3 bg-white rounded-full text-black"
                   >Pendants</span
                 >
               </p>
-              <h4 class="text-3xl font-medium mt-3">Luminous Lotus</h4>
-              <p class="uppercase text-xs text-white/60 py-2">
-                Crafted with meticulous detail, the pendant<br />features
-                intricate petal-like patterns...
-              </p>
-              <div class="flex justify-between">
-                <p class="font-medium text-xl">
-                  $420<sup class="text-white/60 text-xs pl-1 font-thin"
-                    >%580</sup
-                  >
-                </p>
-                <p>4.85</p>
+              <h4 class="text-3xl font-medium mt-2">Frost Bite Grillz</h4>
+              <div class="flex mt-70 justify-center">
+                <button class="border rounded-full px-12 py-3 text-xl">
+                  MORE INFO
+                  <i class="ri-arrow-right-line text-lg"></i>
+                </button>
+                <button class="rounded-full bg-white px-4 text-black text-xl">
+                  <i class="ri-heart-line"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -400,8 +399,12 @@
             class="h-110 w-1/4 bg-black rounded-4xl p-5 flex flex-col justify-between bg-[url('./assets/p4.jpg')] bg-cover bg-center"
           >
             <div class="flex justify-between">
-              <button>hello</button>
-              <button>wassup</button>
+              <button class="border rounded-full px-4 py-3">
+                <i class="ri-arrow-right-up-line text-lg"></i>
+              </button>
+              <button class="rounded-full bg-white px-4 text-black text-xl">
+                <i class="ri-heart-line"></i>
+              </button>
             </div>
             <div>
               <p class="flex">
@@ -419,11 +422,11 @@
               </p>
               <div class="flex justify-between">
                 <p class="font-medium text-xl">
-                  $420<sup class="text-white/60 text-xs pl-1 font-thin"
-                    >%580</sup
+                  $420<sup class="text-white/60 text-xs pl-1 font-thin line-through"
+                    >$580</sup
                   >
                 </p>
-                <p>4.85</p>
+                <p><i class="ri-asterisk text-[#ebd28c]"></i> 4.85</p>
               </div>
             </div>
           </div>
@@ -461,7 +464,7 @@
         </h1>
       </div>
 
-      <section class="flex my-10 gap-1 px-5">
+      <section class="flex my-10 gap-1 px-5 pb-20">
         <div
           class="w-1/2 border rounded-4xl p-13 flex flex-col justify-between"
         >
@@ -511,7 +514,9 @@
         </div>
         <div class="w-1/2 h-160 px-5 py-2">
           <div class="flex flex-col gap-7">
-            <p class="uppercase text-white/50 text-justify text-sm">
+            <p
+              class="uppercase text-white/50 text-justify text-sm [writing-mode:vertical-r]"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias
               impedit quibusdam a, omnis excepturi quisquam saepe repudiandae
               expedita, quae, debitis voluptatum culpa neque iste iusto qui
@@ -547,10 +552,53 @@
             </div>
           </div>
 
-          <div class="mt-5">
-            <div
-              class="h-80 w-110 bg-black rounded-4xl p-5 flex flex-col justify-between bg-[url('./assets/p1.jpg')] bg-cover bg-center"
-            ></div>
+          <div class="mt-5 flex">
+            <div class="h-123 bg-[#1d1d1d] w-110 rounded-4xl">
+              <div
+                class="h-70 w-110 bg-black rounded-4xl p-5 flex flex-col justify-between bg-[url('./assets/p1.jpg')] bg-cover bg-center"
+              >
+                <button class="border rounded-full p-2 pr ml-88 text-white/80">
+                  <i class="ri-arrow-right-up-line text-lg"></i>
+                </button>
+              </div>
+              <div class="p-5">
+                <h1 class="text-2xl font-medium">Enchanting Ember Pendant</h1>
+                <p class="text-white/40 uppercase text-xs py-2 text-justify">
+                  The captivating piece features a radiant gemstone that
+                  mesmerizes with its fiery allure. Elevate any Outfit with its
+                  ethereal design and embrace the enchantment your look.
+                </p>
+                <div
+                  class="mt-8 flex items-center justify-between font-medium px-2"
+                >
+                  <div class="flex items-center">
+                    <img
+                      src="./assets/a1.jpg"
+                      alt="Image"
+                      class="h-10 rounded-full relative z-0"
+                    />
+                    <img
+                      src="./assets/a3.jpg"
+                      alt="Image"
+                      class="h-10 rounded-full -ml-3 relative z-20"
+                    />
+                    <button
+                      class="bg-[#ebd28c] text-black px-2 rounded-full -ml-2 z-30"
+                    >
+                      +1.1k
+                    </button>
+                  </div>
+                  <div>
+                    <p class="text-xl mr-2">
+                      <i class="ri-asterisk text-[#ebd28c]"></i> 4.95
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="[writing-mode:vertical-lr]">Luminous Harmony Necklace</p>
+            </div>
           </div>
         </div>
       </section>
