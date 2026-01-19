@@ -8,25 +8,128 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <main>
-        <nav>
-            <div>
-                <h1>Microsoft</h1>
-                <ul>
-                    <li>Microsoft 365</li>
-                    <li>Teams</li>
-                    <li>Copilot</li>
-                    <li>Windows</li>
-                    <li>Surface</li>
-                    <li>Xbox</li>
-                    <li>Support</li>
+        <nav class="flex justify-between items-center px-20 py-3.5">
+            <div class="flex gap-10 items-center">
+                <div class="flex items-center gap-2">
+                    <img src="./assets/favicon.ico" alt="Logo" class="h-5">
+                    <h1 class="text-xl font-semibold text-neutral-600 cursor-pointer">Microsoft</h1>
+                </div>
+                <ul class="flex gap-7 text-xs items-center">
+                    <li class="cursor-pointer hover:border-b-2">Microsoft 365</li>
+                    <li class="cursor-pointer hover:border-b-2">Teams</li>
+                    <li class="cursor-pointer hover:border-b-2">Copilot</li>
+                    <li class="cursor-pointer hover:border-b-2">Windows</li>
+                    <li class="cursor-pointer hover:border-b-2">Surface</li>
+                    <li class="cursor-pointer hover:border-b-2">Xbox</li>
+                    <li class="cursor-pointer hover:border-b-2">Support</li>
                 </ul>
             </div>
-            <div></div>
+            <div class="flex gap-5 text-sm items-center">
+                <button class="cursor-pointer hover:border-b-2">All Microsoft <i
+                        class="ri-arrow-down-s-line"></i></button>
+                <button class="cursor-pointer hover:border-b-2">Search <i class="ri-search-line"></i></button>
+                <button class="cursor-pointer hover:border-b-2">Cart <i class="ri-shopping-cart-2-line"></i></button>
+                <button class="cursor-pointer">Sign in <i
+                        class="ri-user-add-line border p-2 rounded-full text-black/70 ml-2"></i></button>
+            </div>
         </nav>
+
+        <section>
+            <div class="relative">
+                <img src="./assets/H1.webp" alt="Hero">
+                <div class="absolute top-35 left-30">
+                    <h1 class="text-4xl font-medium">Microsoft 365</h1>
+                    <p class="py-5">
+                        Introducing Microsoft 365 Premium with our highest usage limits
+                        <br>and exclusive Copilot features for AI power users.
+                    </p>
+                    <button class="bg-[#0067b8] text-white font-medium px-4 py-2 rounded-xs mb-5">Discover Microsoft 365
+                        Premium</button><br>
+                    <button class="font-medium text-[#0067b8]">See other Microsoft 365 options <i
+                            class="ri-arrow-right-s-line"></i> </button>
+                </div>
+            </div>
+            <div class="flex gap-5 items-center justify-center py-4 text-2xl">
+                <i class="ri-pause-circle-line cursor-pointer"></i>
+                <i class="ri-arrow-left-s-line cursor-pointer"></i>
+                <i class="ri-checkbox-blank-circle-fill text-xs cursor-pointer"></i>
+                <i class="ri-checkbox-blank-circle-line text-xs cursor-pointer"></i>
+                <i class="ri-arrow-right-s-line cursor-pointer"></i>
+            </div>
+        </section>
+
+        <section class="flex justify-center py-15 gap-10">
+            <div class="flex flex-col gap-2">
+                <img src="./assets/Microsoft.svg" alt="Microsoft SVG" class="h-10">
+                <p class="font-medium text-[#0067b8] underline">Choose your Microsoft 365</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <img src="./assets/Xbox.svg" alt="Xbox SVG" class="h-10">
+                <p class="font-medium text-[#0067b8] underline">Shop Xbox</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <img src="./assets/Microsoft.svg" alt="Microsoft SVG" class="h-10">
+                <p class="font-medium text-[#0067b8] underline">Get Windows 11</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <img src="./assets/Tab.svg" alt="Tab SVG" class="h-10">
+                <p class="font-medium text-[#0067b8] underline">Explore Surface devices</p>
+            </div>
+        </section>
+
+        <section class="mx-20 flex mb-10 gap-6">
+            <div class="w-1/4 flex flex-col justify-between shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                <div>
+                    <img src="./assets/P1.webp" alt="P1">
+                    <div class="p-6">
+                        <h1 class="text-3xl font-medium">Surface Pro,<br>Copilot+ PC</h1>
+                        <p class="pt-4">This laptop's unrivalled flexibility and<br>AI features like Cocreator, enable
+                            you to do more
+                            than
+                            you ever imagined.</p>
+                    </div>
+                </div>
+                <button class="bg-[#0067b8] text-white font-medium py-2 rounded-xs ml-6 w-30 mb-5">Learn more</button>
+            </div>
+            <div class="w-1/4 flex flex-col justify-between shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                <div>
+                    <img src="./assets/P2.jpeg" alt="P2">
+                    <div class="p-5">
+                        <h1 class="text-3xl font-medium">Xbox Series S</h1>
+                        <p class="pt-4">Next-gen performance in the smallest Xbox ever.</p>
+                    </div>
+                </div>
+                <button class="bg-[#0067b8] text-white font-medium py-2 rounded-xs ml-5 w-45 mb-5">Shop Xbox Series
+                    S</button>
+            </div>
+            <div class="w-1/4 flex flex-col justify-between shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                <div>
+                    <img src="./assets/P3.webp" alt="P3">
+                    <div class="p-5">
+                        <h1 class="text-3xl font-medium">Xbox Series X</h1>
+                        <p class="pt-4">The fastest, most powerful Xbox ever.</p>
+                    </div>
+                </div>
+                <button class="bg-[#0067b8] text-white font-medium py-2 rounded-xs ml-5 w-45 mb-5">Shop Xbox Series
+                    X</button>
+            </div>
+            <div class="w-1/4 flex flex-col justify-between shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                <div>
+                    <img src="./assets/P4.webp" alt="P4">
+                    <div class="p-5">
+                        <h1 class="text-3xl font-medium">Xbox Game Pass Ultimate</h1>
+                        <p class="pt-4">Play new titles on day one. Enjoy hundreds of high-quality games with friends on
+                            console, PC or cloud.</p>
+                    </div>
+                </div>
+                <button class="bg-[#0067b8] text-white font-medium py-2 rounded-xs ml-5 w-25 mb-5">Join now</button>
+            </div>
+        </section>
     </main>
 </body>
 
