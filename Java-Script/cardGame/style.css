@@ -1,0 +1,233 @@
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --card-back: linear-gradient(135deg, #6366f1, #a855f7);
+  --text-color: #f8fafc;
+  --accent-color: #bef264;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(99, 102, 241, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(168, 85, 247, 0.1) 0%,
+      transparent 40%
+    );
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.score-board {
+  font-size: 1.5rem;
+  background: var(--glass-bg);
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columns for 30 cards (6x5) */
+  gap: 15px;
+  perspective: 1000px;
+}
+
+.card {
+  background-color: transparent;
+  aspect-ratio: 1; /* Keep cards square */
+  cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card.matched .card-inner {
+  /* Optional: visual cue for matched cards if they don't disappear immediately */
+  transform: rotateY(180deg) scale(0.95);
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s;
+}
+
+/* Front and Back of card */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  border: 1px solid var(--glass-border);
+}
+
+.card-front {
+  background-color: var(--card-bg);
+  transform: rotateY(
+    180deg
+  ); /* The content (emoji) is initially hidden on the back from user perspective */
+}
+
+.card-back {
+  background: var(--card-back);
+  color: white;
+  font-size: 1.5rem; /* Maybe a logo or pattern */
+}
+
+.card-back::after {
+  content: "?";
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+/* Hover effect */
+.card:hover .card-inner {
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+}
+
+/* Win Message Modal */
+#win-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.win-content {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.win-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #bef264, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.win-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+button {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  font-family: "Outfit", sans-serif;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .game-board {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on mobile */
+    gap: 10px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .card-front,
+  .card-back {
+    font-size: 2rem;
+  }
+}

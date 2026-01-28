@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emoji Memory Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Emoji Match</h1>
+      <div class="score-board">
+        <span>Score: <span id="score">0</span></span>
+      </div>
+    </header>
+
+    <div class="game-board" id="game-board">
+      <div class="card"></div>
+    </div>
+
+    <div id="win-message" class="hidden">
+      <div class="win-content">
+        <h2>You Won! 🎉</h2>
+        <p>Final Score: <span id="final-score">0</span></p>
+        <button onclick="restartGame()">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
