@@ -44,4 +44,20 @@ console.log(box.area());
 let square = new Square(5);
 console.log(square.area());
 
-// Immediate Invoke Function
+
+// Prototype Inheritance
+const obj1 = {
+    age: 23
+}
+
+const obj2 = Object.create(obj1);
+obj2.age = 12
+obj2.name = "Shobhit";
+const obj3 = Object.create(obj2);
+obj3.age = 26;
+const obj4 = Object.create(obj3);
+obj4.age = 34;
+const obj5 = Object.create(obj4);
+obj5.age = 45;
+
+console.log(obj5);
