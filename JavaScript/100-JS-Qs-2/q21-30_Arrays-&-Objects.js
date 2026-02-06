@@ -40,8 +40,22 @@ let firstEven = nums2.find(num => num % 2 == 0);
 console.log(firstEven);
 
 // 7. Create a function that flattens a nested array(e.g., [1, [2, [3]]] →[1, 2, 3]).
-
+let nested = [1, [2, [3]]];
+let flattened = nested.flat(Infinity);
+console.log(flattened);
 
 // 8. Write a program that counts how many times each element appears in an array.
+let arr3 = [1, 2, 3, 4, 5, 1, 2, 3];
+let count = {};
+for (let i = 0; i < arr3.length; i++) {
+    if (count[arr3[i]]) {
+        count[arr3[i]]++;
+    } else {
+        count[arr3[i]] = 1;
+    }
+}
+console.log(count);
+
+
 // 9. Use.some() and.every() to check conditions on an array.
 // 10. Sort an array of objects by a specific property.
