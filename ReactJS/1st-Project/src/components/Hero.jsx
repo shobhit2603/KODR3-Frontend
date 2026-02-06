@@ -12,7 +12,7 @@ export default function Hero() {
                 className="absolute inset-0 top-130 bg-[linear-gradient(rgb(252,221,66)_27.027%,rgb(255,0,119)_50%,rgb(158,0,161)_100%)] blur-[100px] rotate-[-7deg] opacity-100 h-100">
             </div>
 
-            <div className="pointer-events-none absolute bottom-13 left-0 w-full h-100 bg-linear-to-t from-white to-transparent z-10" />
+            <div className="pointer-events-none absolute bottom-13 left-0 w-full h-150 bg-linear-to-b from-transparent via-white/70 to-white z-10" />
 
         </section>
     )
