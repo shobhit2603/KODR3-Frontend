@@ -16,7 +16,7 @@ export default function Reclaim() {
                 </div>
             </div>
 
-            <div class="bg-linear-to-l from-[#FCDD42] via-[#FF0077] to-[#9E00A1] blur-[100px] opacity-100 h-30 -mt-20"></div>
+            <div class="bg-linear-to-l from-[#FCDD42] via-[#FF0077] to-[#9E00A1] blur-[100px] opacity-100 h-30 -mt-10 w-full"></div>
         </section>
     )
 }
