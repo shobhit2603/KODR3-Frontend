@@ -1,4 +1,5 @@
 import About from "./components/About";
+import Focus from "./components/Focus";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Reclaim from "./components/Reclaim";
@@ -12,6 +13,7 @@ export default function App() {
       <About />
       <Reclaim />
       <Trusted />
+      <Focus />
     </main>
   )
 }

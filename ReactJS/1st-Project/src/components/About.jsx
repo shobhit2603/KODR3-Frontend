@@ -1,7 +1,7 @@
 export default function About() {
     return (
         <section>
-            <div className="my-35 mx-10 px-30 flex flex-col gap-15">
+            <div className="py-35 px-40 flex flex-col gap-15">
 
                 <div className="flex gap-30 items-end">
                     <div className="">

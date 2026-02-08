@@ -21,7 +21,7 @@ export default function Trusted() {
     ];
 
     return (
-        <section className="my-25 flex flex-col gap-10">
+        <section className="py-25 flex flex-col gap-10">
             <div className="flex justify-between mx-50 items-center">
                 <h3 className="text-xl font-bold tracking-tighter">Trusted by</h3>
                 <p className="text-neutral-500">Join 1,000 companies already building their websites with Frameblox.</p>
