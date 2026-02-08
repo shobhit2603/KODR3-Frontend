@@ -6,8 +6,20 @@ import {
     RiImageCircleAiFill,
     RiCheckboxCircleLine
 } from "@remixicon/react";
+import CompanyCard from "./ui/CompanyCard";
 
 export default function Trusted() {
+    const companies = [
+        { icon: RiCircleLine, name: "Frame Blox" },
+        { icon: RiShareCircleLine, name: "Supa Blox" },
+        { icon: RiImageCircleLine, name: "Hype Blox" },
+        { icon: RiRecordCircleLine, name: "Ultra Blox" },
+        { icon: RiImageCircleAiFill, name: "Ship Blox" },
+        { icon: RiRecordCircleLine, name: "Frame Blox" },
+        { icon: RiCheckboxCircleLine, name: "Ultra Blox" },
+        { icon: RiImageCircleAiFill, name: "Ship Blox" },
+    ];
+
     return (
         <section className="my-25 flex flex-col gap-10">
             <div className="flex justify-between mx-50 items-center">
@@ -15,38 +27,13 @@ export default function Trusted() {
                 <p className="text-neutral-500">Join 1,000 companies already building their websites with Frameblox.</p>
             </div>
             <div className="grid grid-cols-4 gap-3 mx-45 tracking-tighter">
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiCircleLine size={35} />
-                    <h2 className="text-2xl font-extrabold">Frame Blox</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiShareCircleLine size={35} />
-                    <h2 className="text-2xl font-extrabold">Supa Blox</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiImageCircleLine size={35} />
-                    <h2 className="text-2xl font-extrabold">Hype Blox</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiRecordCircleLine size={35} />
-                    <h2 className="text-2xl font-extrabold">Ultra Blox</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiImageCircleAiFill size={35} />
-                    <h2 className="text-2xl font-extrabold">Ship Blox</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiRecordCircleLine size={35} />
-                    <h2 className="text-2xl font-extrabold">Frame Blox</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiCheckboxCircleLine size={35} />
-                    <h2 className="text-2xl font-extrabold">Ultra Blox</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-neutral-600 bg-neutral-100 opacity-80 rounded-lg px-1 py-7">
-                    <RiImageCircleAiFill size={35} />
-                    <h2 className="text-2xl font-extrabold">Ship Blox</h2>
-                </div>git 
+                {companies.map((company, index) => (
+                    <CompanyCard
+                        key={index}
+                        Icon={company.icon}
+                        name={company.name}
+                    />
+                ))}
             </div>
         </section>
     )
