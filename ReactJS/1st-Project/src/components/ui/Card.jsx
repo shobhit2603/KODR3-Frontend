@@ -1,9 +1,9 @@
-const Card = ({ cname, cdescription }) => {
+const Card = ({ title, description }) => {
 
   return (
     <div>
-      <h3 className="text-2xl font-bold mb-3 tracking-tighter">{cname}</h3>
-      <p>{cdescription}</p>
+      <h3 className="text-2xl font-bold mb-3 tracking-tighter">{title}</h3>
+      <p>{description}</p>
     </div>
   )
 }

@@ -14,9 +14,9 @@ export default function About() {
                     </div>
                 </div>
                 <div className="flex gap-12">
-                    <Card cname="Smart Task Management" cdescription={"Easily create, categorize, and prioritize tasks with a drag-and-drop interface that adapts to your workflow."} />
-                    <Card cname="Integrated Calendar & Deadlines" cdescription={"Stay ahead of your schedule with a built-in calendar that syncs across all your devices and reminds you before deadlines hit."} />
-                    <Card cname="Focus Mode" cdescription={"Eliminate distractions with a minimalist interface and time-blocking tools that help you get into deep work—fast."} />
+                    <Card title="Smart Task Management" description={"Easily create, categorize, and prioritize tasks with a drag-and-drop interface that adapts to your workflow."} />
+                    <Card title="Integrated Calendar & Deadlines" description={"Stay ahead of your schedule with a built-in calendar that syncs across all your devices and reminds you before deadlines hit."} />
+                    <Card title="Focus Mode" description={"Eliminate distractions with a minimalist interface and time-blocking tools that help you get into deep work—fast."} />
                 </div>
             </div>
             <div class="bg-linear-to-l from-[#FCDD42] via-[#FF0077] to-[#9E00A1] blur-[100px] opacity-100 h-50 w-full -mb-35"></div>
