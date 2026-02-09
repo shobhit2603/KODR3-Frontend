@@ -1,3 +1,5 @@
+import Card from "./ui/Card";
+
 export default function About() {
     return (
         <section>
@@ -12,18 +14,9 @@ export default function About() {
                     </div>
                 </div>
                 <div className="flex gap-12">
-                    <div>
-                        <h3 className="text-2xl font-bold mb-3 tracking-tighter">Smart Task Management</h3>
-                        <p>Easily create, categorize, and prioritize tasks with a drag-and-drop interface that adapts to your workflow.</p>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-bold mb-3 tracking-tighter">Integrated Calendar & Deadlines</h3>
-                        <p>Stay ahead of your schedule with a built-in calendar that syncs across all your devices and reminds you before deadlines hit.</p>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-bold mb-3 tracking-tighter">Focus Mode</h3>
-                        <p>Eliminate distractions with a minimalist interface and time-blocking tools that help you get into deep work—fast.</p>
-                    </div>
+                    <Card cname="Smart Task Management" cdescription={"Easily create, categorize, and prioritize tasks with a drag-and-drop interface that adapts to your workflow."} />
+                    <Card cname="Integrated Calendar & Deadlines" cdescription={"Stay ahead of your schedule with a built-in calendar that syncs across all your devices and reminds you before deadlines hit."} />
+                    <Card cname="Focus Mode" cdescription={"Eliminate distractions with a minimalist interface and time-blocking tools that help you get into deep work—fast."} />
                 </div>
             </div>
             <div class="bg-linear-to-l from-[#FCDD42] via-[#FF0077] to-[#9E00A1] blur-[100px] opacity-100 h-50 w-full -mb-35"></div>
