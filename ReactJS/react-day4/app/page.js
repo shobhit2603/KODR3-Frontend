@@ -9,18 +9,18 @@ export default function Page() {
     mobile: "",
   });
 
+  function prevent(e) {
+    e.preventDefault();
+    let newArr = [...arr];
+    newArr.push(data);
+    setArr(newArr);
+    console.log(newArr);
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-5">
       <h1 className="text-3xl">Enter your Details</h1>
-      <form
-        className="flex flex-col gap-4"
-        onSubmit={(e) => {
-          e.preventDefault();
-          setArr([...arr, data]);
-          console.log(arr);
-          console.log(data);
-        }}
-      >
+      <form className="flex flex-col gap-4" onSubmit={(e) => prevent(e)}>
         <input
           onChange={(e) => {
             setData({ ...data, name: e.target.value });
