@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import NoteForm from "./components/NoteForm";
@@ -6,7 +6,16 @@ import NoteCard from "./components/NoteCard";
 
 export default function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(() => {
+    // 1. Initial State from Local Storage
+    const savedNotes = localStorage.getItem("notes");
+    return savedNotes ? JSON.parse(savedNotes) : [];
+  });
+
+  // 2. Sync to Local Storage
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const handleAddNote = () => {
     setIsFormOpen(true);
