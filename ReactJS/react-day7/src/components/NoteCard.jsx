@@ -17,7 +17,7 @@ export default function NoteCard({ notes, onDelete }) {
                 e.stopPropagation();
                 onDelete(index);
               }}
-              className="text-gray-400 hover:text-red-500 transition-colors p-1 rounded-full hover:bg-red-50"
+              className="text-gray-400 cursor-pointer hover:text-red-500 transition-colors p-1 rounded-full hover:bg-red-50"
               aria-label="Delete note"
             >
               <RiDeleteBinLine size={18} />
