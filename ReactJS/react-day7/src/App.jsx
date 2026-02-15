@@ -28,6 +28,10 @@ export default function App() {
     setIsFormOpen(false);
   };
 
+  const handleDeleteNote = (indexToDelete) => {
+    setNotes(notes.filter((_, index) => index !== indexToDelete));
+  };
+
   return (
     <main className="h-screen w-screen overflow-hidden flex flex-col">
       <Navbar />
@@ -35,7 +39,7 @@ export default function App() {
         <Sidebar onAddNote={handleAddNote} notes={notes} />
         <div className="flex-1 p-8 overflow-y-auto">
           <h1 className="text-3xl font-medium mb-6">Welcome to My Notes</h1>
-          <NoteCard notes={notes} />
+          <NoteCard notes={notes} onDelete={handleDeleteNote} />
         </div>
       </div>
       {isFormOpen && (
