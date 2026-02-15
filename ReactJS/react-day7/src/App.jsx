@@ -7,12 +7,10 @@ import NoteCard from "./components/NoteCard";
 export default function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [notes, setNotes] = useState(() => {
-    // 1. Initial State from Local Storage
     const savedNotes = localStorage.getItem("notes");
     return savedNotes ? JSON.parse(savedNotes) : [];
   });
 
-  // 2. Sync to Local Storage
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
