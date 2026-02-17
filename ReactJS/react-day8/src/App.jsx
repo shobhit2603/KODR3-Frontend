@@ -7,7 +7,8 @@ import Title from "./components/Title";
 export default function App() {
   const { products } = useContext(AppContext);
   return (
-    <main className="bg-gray-50 min-h-screen">
+    // dark:bg-gray-950
+    <main className="bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
       <Navbar />
       <Title
         title="Shop Trending Products"

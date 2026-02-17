@@ -12,7 +12,8 @@ export default function Wishlist() {
   );
 
   return (
-    <main className="bg-gray-50 min-h-screen">
+    // Added dark:bg-gray-950
+    <main className="bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
       <Navbar />
       <Title
         title="Your Wishlist"
@@ -32,7 +33,8 @@ export default function Wishlist() {
           ))
         ) : (
           <div className="col-span-full text-center py-20">
-            <h3 className="text-xl font-medium text-gray-500">
+            {/* Added dark:text-gray-400 */}
+            <h3 className="text-xl font-medium text-gray-500 dark:text-gray-400 transition-colors">
               Your wishlist is empty
             </h3>
           </div>

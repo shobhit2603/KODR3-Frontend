@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
-import { AppContext } from "../Context/Context"; 
+import { AppContext } from "../Context/Context";
 import Card from "../components/Card";
 
 export default function Cart() {
@@ -12,7 +12,8 @@ export default function Cart() {
   );
 
   return (
-    <main className="bg-gray-50 min-h-screen">
+    // Added dark:bg-gray-950
+    <main className="bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
       <Navbar />
       <Title title="Your Cart" subtitle="Manage your cart items" />
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 max-w-7xl mx-auto w-full">
@@ -29,7 +30,8 @@ export default function Cart() {
           ))
         ) : (
           <div className="col-span-full text-center py-20">
-            <h3 className="text-xl font-medium text-gray-500">
+            {/* Added dark:text-gray-400 */}
+            <h3 className="text-xl font-medium text-gray-500 dark:text-gray-400 transition-colors">
               Your cart is empty
             </h3>
           </div>

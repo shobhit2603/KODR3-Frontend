@@ -1,15 +1,17 @@
-import { Heart, House, ShoppingCart, Store, Sun } from "lucide-react";
+import { Heart, House, ShoppingCart, Store, Sun, Moon } from "lucide-react";
 
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../Context/Context";
 
 export default function Navbar() {
-  const { cartCount, wishlistCount } = useContext(AppContext);
+  const { cartCount, wishlistCount, theme, toggleTheme } =
+    useContext(AppContext);
   const navigate = useNavigate();
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    // Added dark:bg-gray-900/80 and dark:border-gray-800
+    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div
           onClick={() => navigate("/")}
@@ -18,7 +20,8 @@ export default function Navbar() {
           <div className="p-2 bg-blue-600 rounded-lg text-white transform group-hover:rotate-12 transition-transform duration-300">
             <Store size={24} />
           </div>
-          <h1 className="font-bold text-2xl tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors">
+          {/* Added dark:text-white */}
+          <h1 className="font-bold text-2xl tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">
             Store
           </h1>
         </div>
@@ -26,7 +29,8 @@ export default function Navbar() {
         <div className="flex gap-4 items-center">
           <Link to="/">
             <button
-              className="p-2 rounded-full hover:bg-gray-100 text-gray-600 hover:text-blue-600 transition-all duration-300 active:scale-95 cursor-pointer"
+              // Added dark styles
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 active:scale-95 cursor-pointer"
               aria-label="Home"
             >
               <House size={20} />
@@ -35,12 +39,12 @@ export default function Navbar() {
 
           <Link to="/wishlist">
             <button
-              className="relative p-2 rounded-full hover:bg-gray-100 text-gray-600 hover:text-red-500 transition-all duration-300 active:scale-95 cursor-pointer"
+              className="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-red-500 transition-all duration-300 active:scale-95 cursor-pointer"
               aria-label="Wishlist"
             >
               <Heart size={20} />
               {wishlistCount > 0 && (
-                <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">
+                <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white dark:border-gray-900">
                   {wishlistCount}
                 </span>
               )}
@@ -49,25 +53,28 @@ export default function Navbar() {
 
           <Link to="/cart">
             <button
-              className="relative p-2 rounded-full hover:bg-gray-100 text-gray-600 hover:text-blue-600 transition-all duration-300 active:scale-95 cursor-pointer"
+              className="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 active:scale-95 cursor-pointer"
               aria-label="Cart"
             >
               <ShoppingCart size={20} />
               {cartCount > 0 && (
-                <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">
+                <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white dark:border-gray-900">
                   {cartCount}
                 </span>
               )}
             </button>
           </Link>
 
-          <div className="w-px h-6 bg-gray-200 mx-1 hidden sm:block"></div>
+          {/* Divider */}
+          <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-1 hidden sm:block"></div>
 
+          {/* Theme Toggle */}
           <button
-            className="p-2 rounded-full hover:bg-gray-100 text-gray-600 hover:text-yellow-500 transition-all duration-300 active:scale-95 cursor-pointer"
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 active:scale-95 cursor-pointer"
             aria-label="Theme Toggle"
           >
-            <Sun size={20} />
+            {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </div>
       </div>
