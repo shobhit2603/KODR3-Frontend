@@ -18,24 +18,19 @@ const getWishlist = () => {
   return storedWishlist ? JSON.parse(storedWishlist) : [];
 };
 
-// --- Dark Mode Logic Helper ---
 const getInitialTheme = () => {
-  // 1. Check Local Storage
   const storedTheme = localStorage.getItem("theme");
   if (storedTheme) {
-    // Apply class immediately
     if (storedTheme === "dark") document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
     return storedTheme;
   }
 
-  // 2. Check System Preference
   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     document.documentElement.classList.add("dark");
     return "dark";
   }
 
-  // 3. Default to light
   document.documentElement.classList.remove("dark");
   return "light";
 };
@@ -45,7 +40,6 @@ const AppContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getCart);
   const [wishlistItems, setWishlistItems] = useState(getWishlist);
 
-  // Initialize theme state using the helper
   const [theme, setTheme] = useState(getInitialTheme);
 
   const toggleTheme = () => {
@@ -53,7 +47,6 @@ const AppContextProvider = ({ children }) => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
 
-    // Direct DOM manipulation (No useEffect needed)
     if (newTheme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
@@ -133,8 +126,8 @@ const AppContextProvider = ({ children }) => {
     isInWishlist,
     cartCount,
     wishlistCount,
-    theme, // Exported
-    toggleTheme, // Exported
+    theme,
+    toggleTheme,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

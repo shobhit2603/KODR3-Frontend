@@ -12,8 +12,7 @@ export default function Cart() {
   );
 
   return (
-    // Added dark:bg-gray-950
-    <main className="bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
+    <main className="bg-neutral-50 dark:bg-neutral-950 min-h-screen transition-colors duration-300">
       <Navbar />
       <Title title="Your Cart" subtitle="Manage your cart items" />
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 max-w-7xl mx-auto w-full">
@@ -30,8 +29,7 @@ export default function Cart() {
           ))
         ) : (
           <div className="col-span-full text-center py-20">
-            {/* Added dark:text-gray-400 */}
-            <h3 className="text-xl font-medium text-gray-500 dark:text-gray-400 transition-colors">
+            <h3 className="text-xl font-medium text-neutral-500 dark:text-neutral-400 transition-colors">
               Your cart is empty
             </h3>
           </div>
