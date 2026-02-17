@@ -2,7 +2,6 @@ import { useContext } from "react";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
 import { AppContext } from "./Context/Context";
-// import { cardData } from "./data/cardData";
 
 export default function App() {
   const { products } = useContext(AppContext);

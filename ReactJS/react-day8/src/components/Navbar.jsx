@@ -1,6 +1,11 @@
 import { Heart, House, ShoppingCart, Store, Sun } from "lucide-react";
 
+import { useContext } from "react";
+import { AppContext } from "../Context/Context";
+
 export default function Navbar() {
+  const { cartCount, wishlistCount } = useContext(AppContext);
+
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -22,10 +27,15 @@ export default function Navbar() {
           </button>
 
           <button
-            className="p-2 rounded-full hover:bg-gray-100 text-gray-600 hover:text-red-500 transition-all duration-300 active:scale-95 cursor-pointer"
+            className="relative p-2 rounded-full hover:bg-gray-100 text-gray-600 hover:text-red-500 transition-all duration-300 active:scale-95 cursor-pointer"
             aria-label="Wishlist"
           >
             <Heart size={20} />
+            {wishlistCount > 0 && (
+              <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">
+                {wishlistCount}
+              </span>
+            )}
           </button>
 
           <button
@@ -33,9 +43,11 @@ export default function Navbar() {
             aria-label="Cart"
           >
             <ShoppingCart size={20} />
-            <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">
-              2
-            </span>
+            {cartCount > 0 && (
+              <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">
+                {cartCount}
+              </span>
+            )}
           </button>
 
           <div className="w-px h-6 bg-gray-200 mx-1 hidden sm:block"></div>

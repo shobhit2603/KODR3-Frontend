@@ -1,9 +1,25 @@
-import { HeartPlus, ShoppingBag } from "lucide-react";
+import { Heart, Minus, Plus, ShoppingBag } from "lucide-react";
 import { useContext } from "react";
 import { AppContext } from "../Context/Context";
 
-export default function Card({ id, image, title, description, price = "$99.99" }) {
-    const {products, setProducts} = useContext(AppContext)
+export default function Card({
+  id,
+  image,
+  title,
+  description,
+  price = "$99.99",
+}) {
+  const {
+    addToCart,
+    removeFromCart,
+    getCartQuantity,
+    toggleWishlist,
+    isInWishlist,
+  } = useContext(AppContext);
+
+  const quantity = getCartQuantity(id);
+  const isWishlisted = isInWishlist(id);
+
   return (
     <div className="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full w-full max-w-sm mx-auto cursor-pointer">
       <div className="relative overflow-hidden aspect-4/3">
@@ -14,10 +30,14 @@ export default function Card({ id, image, title, description, price = "$99.99" }
         />
 
         <button
-          className="absolute top-3 right-3 p-2 rounded-full bg-white/70 backdrop-blur-md text-gray-700 hover:bg-white hover:text-red-500 shadow-sm transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
-          aria-label="Add to wishlist"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleWishlist(id);
+          }}
+          className={`absolute top-3 right-3 z-10 p-2 rounded-full bg-white/70 backdrop-blur-md shadow-sm transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer ${isWishlisted ? "text-red-500 hover:bg-red-50" : "text-gray-700 hover:bg-white hover:text-red-500"}`}
+          aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
         >
-          <HeartPlus size={20} />
+          <Heart size={20} fill={isWishlisted ? "currentColor" : "none"} />
         </button>
 
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
@@ -37,22 +57,36 @@ export default function Card({ id, image, title, description, price = "$99.99" }
           {description}
         </p>
 
-        <button onClick={()=>{
-            let newObjs = products.map((item)=>{
-                if(item.id === id){
-                    return {...item, addedToCart: !item.addedToCart}
-                }
-                return item
-            })
-            localStorage.setItem("products", JSON.stringify(newObjs))
-            setProducts(newObjs)
-        }} className="w-full bg-gray-900 text-white px-4 py-3 rounded-xl font-medium text-sm mt-2 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 flex items-center justify-center gap-2 group/btn active:scale-95 cursor-pointer">
-          <ShoppingBag
-            size={18}
-            className="transition-transform group-hover/btn:-translate-y-0.5"
-          />
-          Add to Cart
-        </button>
+        {quantity > 0 ? (
+          <div className="w-full bg-gray-900 text-white px-4 py-3 rounded-xl font-medium text-sm mt-2 flex items-center justify-between gap-2 shadow-lg shadow-blue-500/30">
+            <button
+              onClick={() => removeFromCart(id)}
+              className="p-1 hover:bg-gray-700 rounded-lg transition-colors active:scale-90 cursor-pointer"
+            >
+              <Minus size={16} />
+            </button>
+            <span className="flex items-center gap-2 font-bold">
+              {quantity}
+            </span>
+            <button
+              onClick={() => addToCart(id)}
+              className="p-1 hover:bg-gray-700 rounded-lg transition-colors active:scale-90 cursor-pointer"
+            >
+              <Plus size={16} />
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => addToCart(id)}
+            className="w-full bg-gray-900 text-white px-4 py-3 rounded-xl font-medium text-sm mt-2 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 flex items-center justify-center gap-2 group/btn active:scale-95 cursor-pointer"
+          >
+            <ShoppingBag
+              size={18}
+              className="transition-transform group-hover/btn:-translate-y-0.5"
+            />
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );
