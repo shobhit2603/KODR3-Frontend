@@ -13,18 +13,27 @@ const App = () => {
     formState: { errors },
   } = useForm();
 
+  const updatePosts = (newPosts) => {
+    setPosts(newPosts);
+    localStorage.setItem("dashboard_posts", JSON.stringify(newPosts));
+  };
+
   useEffect(() => {
     const fetchPosts = async () => {
+      setLoading(true);
       try {
-        setLoading(true);
+        const savedPosts = localStorage.getItem("dashboard_posts");
 
-        const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const data = await res.json();
-
-        setPosts(data.slice(0, 15));
-
+        if (savedPosts) {
+          setPosts(JSON.parse(savedPosts));
+        } else {
+          const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+          const data = await res.json();
+          const initialData = data.slice(0, 15);
+          updatePosts(initialData);
+        }
       } catch (error) {
-        console.error(error);
+        console.error("Failed to fetch posts:", error);
       } finally {
         setLoading(false);
       }
@@ -43,17 +52,18 @@ const App = () => {
           userId: 1,
         };
 
-        await fetch(`https://jsonplaceholder.typicode.com/posts/${editId}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updatedPost),
-        });
+        if (editId <= 100) {
+          await fetch(`https://jsonplaceholder.typicode.com/posts/${editId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedPost),
+          });
+        }
 
-        setPosts((prev) =>
-          prev.map((post) =>
-            post.id === editId ? { ...post, ...updatedPost } : post,
-          ),
+        const newPosts = posts.map((post) =>
+          post.id === editId ? { ...post, ...updatedPost } : post,
         );
+        updatePosts(newPosts);
 
         setEditId(null);
         reset();
@@ -66,14 +76,19 @@ const App = () => {
         userId: 1,
       };
 
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
       });
 
-      const data = await res.json();
-      setPosts((prev) => [data, ...prev]);
+      const newPostId = {
+        ...newPost,
+        id: Date.now(),
+      };
+
+      const newPosts = [newPostId, ...posts];
+      updatePosts(newPosts);
       reset();
     } catch (error) {
       console.error(error);
@@ -90,11 +105,14 @@ const App = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        method: "DELETE",
-      });
-console.log(id)
-      setPosts((prev) => prev.filter((post) => post.id !== id));
+      if (id <= 100) {
+        await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+          method: "DELETE",
+        });
+      }
+
+      const newPosts = posts.filter((post) => post.id !== id);
+      updatePosts(newPosts);
     } catch (error) {
       console.error(error);
     }
@@ -141,18 +159,24 @@ console.log(id)
         </form>
 
         {loading ? (
-          <p>Loading posts...</p>
+          <p className="text-center text-neutral-400">Loading posts...</p>
         ) : (
-          <div className="space-y-4 md:grid md:grid-cols-3 gap-4">
+          <div className="space-y-4 md:grid md:grid-cols-3 md:space-y-0 gap-4">
             {posts.map((post) => (
               <div
                 key={post.id}
-                className="bg-neutral-90 p-4 border-l-2 border-neutral-800"
+                className="p-4 border-l-2 border-neutral-800 rounded shadow-md flex flex-col justify-between"
               >
-                <h3 className="text-lg font-semibold mb-2 uppercase">{post.title}</h3>
-                <p className="text-neutral-300 mb-4">{post.body}</p>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 uppercase line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-neutral-300 mb-4 line-clamp-4">
+                    {post.body}
+                  </p>
+                </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   <button
                     onClick={() => handleDelete(post.id)}
                     className="bg-red-500 hover:bg-red-700 px-3 py-1 rounded-lg text-sm cursor-pointer transition"
