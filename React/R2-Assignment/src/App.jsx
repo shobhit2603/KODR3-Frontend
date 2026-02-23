@@ -161,11 +161,11 @@ const App = () => {
         {loading ? (
           <p className="text-center text-neutral-400">Loading posts...</p>
         ) : (
-          <div className="space-y-4 md:grid md:grid-cols-3 md:space-y-0 gap-4">
+          <div className="space-y-4 md:grid md:grid-cols-3 md:space-y-0 gap-5">
             {posts.map((post) => (
               <div
                 key={post.id}
-                className="p-4 border-l-2 border-neutral-800 rounded shadow-md flex flex-col justify-between"
+                className="p-4 border-l-2 border-neutral-800 shadow-md flex flex-col justify-between"
               >
                 <div>
                   <h3 className="text-lg font-semibold mb-2 uppercase line-clamp-2">
