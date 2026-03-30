@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Layout</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-black text-white min-h-screen flex flex-col font-sans">
+    <div id="app" class="flex-grow flex flex-col">
+      <nav
+        class="grid grid-cols-3 items-start p-8 text-xs text-neutral-400 uppercase tracking-widest nav"
+      >
+        <div class="leading-relaxed">BHOPAL<br />MP, INDIA</div>
+        <div class="leading-relaxed">
+          FULL-STACK DEVELOPER<br />FOLIO / 2021 &mdash; 2026
+        </div>
+        <div class="text-right">
+          <button
+            class="border border-neutral-500 rounded-full px-3 py-1 text-lg text-neutral-300 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-colors duration-300 contact-btn cursor-pointer"
+          >
+            CONTACT
+          </button>
+        </div>
+      </nav>
+
+      <div class="hero flex flex-col justify-center px-5 items-center mt-10">
+        <div class="overflow-hidden w-full px-1 py-1">
+          <h1
+            class="text-[23vw] text-[#7a7a7a] leading-[0.8] tracking-tighter m-0 p-0"
+          >
+            FULL &mdash; STACK
+          </h1>
+        </div>
+
+        <div
+          class="flex flex-col lg:flex-row justify-between items-end w-full mt-2 lg:mt-0 gap-8 lg:gap-0"
+        >
+          <div class="overflow-hidden p-1 px-2">
+            <h1
+              class="text-[23vw] text-[#7a7a7a] leading-[0.8] tracking-tighter m-0 p-0"
+            >
+              DEVELOPER
+            </h1>
+          </div>
+
+          <div
+            class="w-full lg:w-1/4 lg:min-w-[300px] flex flex-col justify-between self-stretch pb-5 about"
+          >
+            <div class="overflow-hidden mt-4 lg:mt-0">
+              <p
+                class="text-lg text-neutral-400 leading-relaxed font-medium tracking-tight leading-tight"
+              >
+                <span class="text-neutral-500 mr-2 text-xs">ABOUT</span> Hey!
+                I'm Shobhit, a full stack web developer based in India, focused
+                on creating interactive digital experiences on the web, working
+                with brands and industry leaders such as GOOGLE FONTS, PAYSTACK,
+                HEVA HEALTH, DISNEY, JELLY, and NULL amongst others to achieve
+                this. I am big on clean UI, good UX, and smooth animations.
+              </p>
+            </div>
+
+            <div
+              class="flex justify-between items-center text-neutral-500 pr-5 text-lg"
+            >
+              <span>Scroll down</span>
+              <span>&darr;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <hr class="border-t-2 border-neutral-500 mx-20 my-10 divider" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
