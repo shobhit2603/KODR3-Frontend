@@ -22,7 +22,7 @@
 
     <main class="min-h-screen w-full bg-zinc-950 flex flex-col image-container">
       <nav
-        class="w-full flex justify-between items-center p-8 text-white bg-black/5 backdrop-blur-sm"
+        class="w-full flex justify-between items-center p-8 text-white bg-black/5 backdrop-blur-lg"
       >
         <div class="text-2xl font-bold tracking-tighter logo">KODR.</div>
         <div class="hidden md:flex gap-8 links">
@@ -49,7 +49,7 @@
         </div>
         <div class="overflow-hidden mt-6">
           <p
-            class="text-xl md:text-2xl text-white/70 max-w-2xl font-light subtitle"
+            class="text-xl md:text-2xl text-white max-w-2xl font-light subtitle"
           >
             Crafting digital experiences that bridge the gap between design and
             development using GSAP.
@@ -59,13 +59,47 @@
     </main>
 
     <section
-      class="h-screen w-full bg-zinc-950 flex justify-center items-center"
+      class="horizontal-section h-screen w-full flex flex-col justify-center overflow-hidden"
     >
-      <img
-        src="./photo.jpg"
-        alt="section-image"
-        class="rounded-xl w-1/2 h-1/2 object-cover section-image"
-      />
+      <div class="overflow-hidden">
+        <h2
+          class="text-5xl md:text-7xl font-medium text-white px-8 mb-10 tracking-tighter title2"
+        >
+          Our Latest Work
+        </h2>
+      </div>
+      <div class="scroll-wrapper flex gap-8 px-8 w-[300vw] lg:w-[200vw]">
+        <img
+          src="./shooting-star-comet-night-sky-scenery-4k-wallpaper-uhdpaper.com-523@5@k.jpg"
+          alt="Work 1"
+          class="w-1/3 h-[40vh] md:h-[60vh] object-cover rounded-xl"
+        />
+        <img
+          src="./cyberpunk-night-city-alley-4k-wallpaper-uhdpaper.com-817@5@m.jpg"
+          alt="Work 2"
+          class="w-1/3 h-[40vh] md:h-[60vh] object-cover rounded-xl"
+        />
+        <img
+          src="./ninja-cyberpunk-night-city-sci-fi-4k-wallpaper-uhdpaper.com-832@5@m.jpg"
+          alt="Work 3"
+          class="w-1/3 h-[40vh] md:h-[60vh] object-cover rounded-xl"
+        />
+        <img
+          src="./porsche-911-gt3-9504x5346-25773.jpeg"
+          alt="Work 4"
+          class="w-1/3 h-[40vh] md:h-[60vh] object-cover rounded-xl"
+        />
+      </div>
+    </section>
+
+    <section
+      class="h-screen w-full flex flex-col justify-center items-start overflow-hidden wrapper-section pl-50 pr-50"
+    >
+      <h1
+        class="text-[30vw] font-medium px-8 mb-10 wrapper-text whitespace-nowrap bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+      >
+        Learning GSAP from the Best.
+      </h1>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>

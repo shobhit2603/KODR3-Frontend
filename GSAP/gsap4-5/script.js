@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
+
 const locomotive = new LocomotiveScroll();
 
 const counter = document.querySelector(".counter");
@@ -75,18 +76,75 @@ master
   .add(navAnimation(), "-=0.7")
   .add(titleAnimation(), "-=0.7");
 
-expandImage();
+// expandImage();
 
-function expandImage() {
-  gsap.from(".section-image", {
+// function expandImage() {
+//   gsap.from(".section-image", {
+//     scrollTrigger: {
+//       markers: true,
+//       trigger: ".section-image",
+//       start: "top 80%",
+//       end: "bottom 20%",
+//       scrub: 1,
+//     },
+//     y:-100,
+//     duration: 1.2,
+//     ease: "power3.out",
+//   });
+// }
+
+function horizontalScroll() {
+  const wrapper = document.querySelector(".scroll-wrapper");
+
+  let scrollDistance = wrapper.scrollWidth - window.innerWidth;
+
+  gsap.to(wrapper, {
+    x: -scrollDistance,
+    ease: "none",
     scrollTrigger: {
-      trigger: ".section-image",
-      start: "top 80%",
-      end: "bottom 20%",
+      trigger: ".horizontal-section",
+      pin: true,
       scrub: 1,
+      start: "top top",
+      end: () => "+=" + scrollDistance,
     },
-    scale: 1.5,
-    duration: 1.2,
-    ease: "power3.out",
+  });
+
+  const tl = gsap.timeline();
+  tl.from(
+    ".title2",
+    {
+      scrollTrigger: {
+        trigger: ".horizontal-section",
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: 1,
+      },
+      x: 100,
+      duration: 1,
+      ease: "power3.out",
+    },
+    "-=0.5",
+  );
+}
+
+horizontalScroll();
+
+function animateText() {
+  const textElement = document.querySelector(".wrapper-text");
+  let textScrollDistance = textElement.scrollWidth - window.innerWidth;
+
+  gsap.to(".wrapper-text", {
+    x: -textScrollDistance,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".wrapper-section",
+      pin: true,
+      scrub: 1,
+      start: "top top",
+      end: () => "+=" + textScrollDistance,
+    },
   });
 }
+
+animateText();
