@@ -66,7 +66,7 @@ gsap.utils.toArray(".divider-l").forEach((divider) => {
   gsap.from(divider, {
     scaleX: 0,
     transformOrigin: "left",
-    duration: 1.7,
+    duration: 2,
     ease: "power3.out",
     scrollTrigger: {
       trigger: divider,
@@ -80,22 +80,22 @@ gsap.utils.toArray(".divider-r").forEach((divider) => {
   gsap.from(divider, {
     scaleX: 0,
     transformOrigin: "right",
-    duration: 1.7,
+    duration: 2,
     ease: "power3.out",
     scrollTrigger: {
-      trigger: divider, 
+      trigger: divider,
       start: "top 85%",
     },
   });
 });
 
-// Animate text moving to the left (Right-aligned text)
+// Animate text moving to the left
 gsap.utils.toArray(".project-text-r").forEach((text) => {
   gsap.to(text, {
-    x: "-30%", // Adjusted slightly so you don't run out of text too fast
+    x: "-30%",
     ease: "none",
     scrollTrigger: {
-      trigger: text.parentElement, // Ties the animation to its specific container
+      trigger: text.parentElement,
       start: "top bottom",
       end: "bottom top",
       scrub: 1,
@@ -103,16 +103,73 @@ gsap.utils.toArray(".project-text-r").forEach((text) => {
   });
 });
 
-// Animate text moving to the right (Left-aligned text)
+// Animate text moving to the right
 gsap.utils.toArray(".project-text-l").forEach((text) => {
   gsap.to(text, {
-    x: "30%", 
+    x: "30%",
     ease: "none",
     scrollTrigger: {
-      trigger: text.parentElement, 
+      trigger: text.parentElement,
       start: "top bottom",
       end: "bottom top",
       scrub: 1,
     },
   });
 });
+
+// Third Section Line-by-Line Reveal Animation
+const thirdSectionTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".third-section",
+    start: "top 60%",
+  },
+});
+
+thirdSectionTl
+  .from(".section-label", {
+    y: "100%",
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out",
+  })
+
+  .from(
+    ".line-anim",
+    {
+      y: "150%",
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power4.out",
+    },
+    "-=0.4",
+  );
+
+// Final Section Animation
+const finalSectionTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".final-section",
+    start: "top 75%",
+  },
+});
+
+finalSectionTl
+  // Animate the awards list items
+  .from(".award-item", {
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power3.out",
+  })
+
+  .from(
+    ".info-block",
+    {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
+    },
+    "-=0.6",
+  );
