@@ -1,6 +1,20 @@
 gsap.registerPlugin(ScrollTrigger);
 
-const locomotive = new LocomotiveScroll();
+const locomotive = new LocomotiveScroll({
+  smooth: true,
+  lerp: 0.05,
+  getSpeed: true,
+  getDirection: true,
+  touchMultiplier: 2,
+  smartphone: {
+    smooth: true,
+    lerp: 0.08,
+  },
+  tablet: {
+    smooth: true,
+    lerp: 0.06,
+  },
+});
 
 gsap.from(".nav", {
   opacity: 0,
@@ -127,7 +141,7 @@ thirdSectionTl
     {
       y: "150%",
       duration: 1.2,
-      stagger: 0.15,
+      stagger: 0.10,
       ease: "power4.out",
     },
     "-=0.4",
@@ -160,3 +174,14 @@ finalSectionTl
     },
     "-=0.6",
   );
+
+const marqueeTween = gsap.to(".footer-marquee", {
+  xPercent: -50, 
+  repeat: -1,    
+  duration: 50,  
+  ease: "linear" 
+});
+
+const marqueeElement = document.querySelector(".footer-marquee");
+marqueeElement.addEventListener("mouseenter", () => marqueeTween.pause());
+marqueeElement.addEventListener("mouseleave", () => marqueeTween.play());
