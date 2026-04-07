@@ -18,7 +18,7 @@
     />
   </head>
   <body class="min-h-screen flex flex-col font-sans overflow-x-hidden bg-black">
-    <div id="app" class="flex-grow flex flex-col">
+    <main id="app" class="flex-grow flex flex-col">
       <nav
         class="grid grid-cols-3 items-start p-8 text-xs text-neutral-300 uppercase tracking-widest nav inter"
       >
@@ -379,7 +379,64 @@
           </div>
         </div>
       </section>
-    </div>
+
+      <footer class="min-h-screen flex flex-col justify-between pt-32 pb-8 text-white inter bg-black relative overflow-hidden">
+        
+        <div class="flex-grow flex flex-col justify-center items-center w-full">
+          
+          <p class="text-center text-neutral-400 text-sm md:text-base mb-16 max-w-md mx-auto leading-relaxed">
+            Got a question, proposal or project or want to work <br class="hidden md:block" />
+            together on something? Feel free to reach out.
+          </p>
+
+          <hr class="border-t border-neutral-600 w-[95%] mx-auto mb-6" />
+
+          <div class="w-full overflow-hidden flex justify-center py-2">
+            <h1 
+              class="footer-marquee text-[15vw] leading-[0.8] text-neutral-500 whitespace-nowrap m-0 p-0 tracking-normal cursor-default"
+              style="font-family: 'Bebas Neue', sans-serif;"
+            >
+              
+                LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
+                SOMETHING?
+            </h1>
+          </div>
+
+          <hr class="border-t border-neutral-600 w-[95%] mx-auto mt-6 mb-24" />
+
+          <a href="mailto:hello@shobhit.dev" class="footer-email text-3xl md:text-4xl lg:text-5xl text-neutral-300 hover:text-purple-600 transition-colors duration-300 tracking-tight font-medium">
+            hello@shobhit.dev
+          </a>
+        </div>
+
+        <div class="w-full flex flex-col md:flex-row justify-between items-center px-8 text-xs text-neutral-500 uppercase tracking-widest gap-6 md:gap-0 mt-10">
+          
+          <div class="flex gap-4 items-center">
+            <span>BHOPAL, MP</span>
+            <span>10:25</span>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+            <a href="#" class="social-pill border border-neutral-600 rounded-full px-5 py-1.5 hover:text-white hover:border-purple-600 hover:bg-purple-900/20 transition-all duration-300">
+              TWITTER
+            </a>
+            <a href="#" class="social-pill border border-neutral-600 rounded-full px-5 py-1.5 hover:text-white hover:border-purple-600 hover:bg-purple-900/20 transition-all duration-300">
+              INSTAGRAM
+            </a>
+            <a href="#" class="social-pill border border-neutral-600 rounded-full px-5 py-1.5 hover:text-white hover:border-purple-600 hover:bg-purple-900/20 transition-all duration-300">
+              GITHUB
+            </a>
+            <a href="#" class="social-pill border border-neutral-600 rounded-full px-5 py-1.5 hover:text-white hover:border-purple-600 hover:bg-purple-900/20 transition-all duration-300">
+              LINKEDIN
+            </a>
+          </div>
+
+          <div>
+            Design by <span class="text-neutral-400">Shobhit</span>
+          </div>
+        </div>
+      </footer>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
