@@ -108,7 +108,7 @@ export default function ProjectDetailView({ project }) {
 
         {/* Links sidebar */}
         <div className="space-y-8 scroll-section">
-          <div className="p-10 rounded-[2rem] bg-neutral-50 dark:bg-neutral-900 space-y-8">
+          <div className="p-10 rounded-4xl bg-neutral-50 dark:bg-neutral-900 space-y-8">
             <h3 className="text-xl font-light tracking-tight">Project Links</h3>
             
             <a

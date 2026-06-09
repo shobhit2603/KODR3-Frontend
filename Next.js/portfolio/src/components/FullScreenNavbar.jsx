@@ -23,7 +23,8 @@ export default function FullScreenNavbar() {
   ];
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleTheme = () => {
@@ -90,15 +91,16 @@ export default function FullScreenNavbar() {
   }, [isOpen]);
 
   // ─── Auto-close on route change ───────────────────────────────────────────
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     if (isOpen) setIsOpen(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }
 
   return (
     <>
       {/* ── Top bar ─────────────────────────────────────────────────────── */}
-      <header className="fixed top-0 w-full z-[100] px-6 md:px-12 py-8 flex items-center justify-between mix-blend-difference text-white">
+      <header className="fixed top-0 w-full z-100 px-6 md:px-12 py-8 flex items-center justify-between mix-blend-difference text-white">
         <Link
           href="/"
           className="text-xl font-medium tracking-tight hover:text-violet-400 transition-colors"
@@ -118,7 +120,7 @@ export default function FullScreenNavbar() {
       {/* ── Full-screen overlay ──────────────────────────────────────────── */}
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-[90] bg-white dark:bg-black text-black dark:text-white flex flex-col justify-center px-6 md:px-24"
+        className="fixed inset-0 z-90 bg-white dark:bg-black text-black dark:text-white flex flex-col justify-center px-6 md:px-24"
         style={{ willChange: "transform, opacity" }}
       >
         <nav className="flex flex-col gap-6 md:gap-10">

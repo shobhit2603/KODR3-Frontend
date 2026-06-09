@@ -46,7 +46,7 @@ export default function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className={`fixed top-0 left-0 w-5 h-5 rounded-full pointer-events-none z-[9999] transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference bg-white transition-all duration-300 ease-out hidden md:block ${
+      className={`fixed top-0 left-0 w-5 h-5 rounded-full pointer-events-none z-9999 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference bg-white transition-all duration-300 ease-out hidden md:block ${
         isHovering ? "scale-[2.5]" : "scale-100"
       }`}
     ></div>

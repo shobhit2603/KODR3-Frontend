@@ -69,12 +69,12 @@ export default function Preloader() {
     <div
       ref={preloaderRef}
       style={{ willChange: "transform" }}
-      className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-white dark:bg-black text-black dark:text-white"
+      className="fixed inset-0 z-10000 flex flex-col items-center justify-center bg-white dark:bg-black text-black dark:text-white"
     >
       <div className="text-5xl md:text-7xl font-light tracking-tighter tabular-nums">
         {progress}%
       </div>
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-px bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
         <div
           className="h-full bg-violet-500"
           style={{
