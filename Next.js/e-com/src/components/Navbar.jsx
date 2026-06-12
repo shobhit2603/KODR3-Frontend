@@ -10,32 +10,34 @@ export default async function Navbar() {
   const sessionToken = cookieStore.get("sessionToken");
 
   return (
-    <nav className="flex items-center justify-between p-5 border-b border-neutral-400 dark:border-neutral-800">
-      <div>
-        <Link href="/">
-          <h1 className="text-2xl">ecom.</h1>
-        </Link>
-      </div>
-      <div className="flex gap-2 items-center">
-        <ModeToggle />
-        <Link href="/">
-          <Button variant="outline">Home</Button>
-        </Link>
-        <Link href="/products">
-          <Button variant="outline">Products</Button>
-        </Link>
-        {!sessionToken ? (
-          <>
-            <Link href="/register">
-              <Button variant="outline">Register</Button>
-            </Link>
-            <Link href="/login">
-              <Button variant="outline">Login</Button>
-            </Link>
-          </>
-        ) : (
-          <LogoutButton />
-        )}
+    <nav className="border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+      <div className="container flex h-16 items-center justify-between">
+        <div>
+          <Link href="/">
+            <h1 className="text-2xl tracking-tighter">ecom.</h1>
+          </Link>
+        </div>
+        <div className="flex gap-4 items-center">
+          <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            Home
+          </Link>
+          <Link href="/products" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            Products
+          </Link>
+          <ModeToggle />
+          {!sessionToken ? (
+            <div className="flex items-center gap-2 ml-2">
+              <Link href="/login">
+                <Button variant="ghost" size="sm">Login</Button>
+              </Link>
+              <Link href="/register">
+                <Button size="sm">Register</Button>
+              </Link>
+            </div>
+          ) : (
+            <LogoutButton />
+          )}
+        </div>
       </div>
     </nav>
   );

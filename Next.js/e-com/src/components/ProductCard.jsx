@@ -53,12 +53,12 @@ function ShoppingCartIcon(props) {
 export function ProductCard({ product }) {
   return (
     <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card/40 backdrop-blur-md border-muted/60">
-      <div className="relative w-full aspect-square bg-white group p-6">
+      <div className="relative w-full h-[280px] bg-white group p-6 flex items-center justify-center border-b border-border/40">
         <Image
           src={product.image}
           alt={product.title}
           fill
-          className="object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-110"
+          className="object-contain p-8 transition-transform duration-700 ease-out group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
