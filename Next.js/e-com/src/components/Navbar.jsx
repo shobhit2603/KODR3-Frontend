@@ -2,8 +2,13 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ui/mode-toggle";
+import { cookies } from "next/headers";
+import { LogoutButton } from "./LogoutButton";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const cookieStore = await cookies();
+  const sessionToken = cookieStore.get("sessionToken");
+
   return (
     <nav className="flex items-center justify-between p-5 border-b border-neutral-400 dark:border-neutral-800">
       <div>
@@ -19,12 +24,18 @@ export default function Navbar() {
         <Link href="/products">
           <Button variant="outline">Products</Button>
         </Link>
-        <Link href="/register">
-          <Button variant="outline">Register</Button>
-        </Link>
-        <Link href="/login">
-          <Button variant="outline">Login</Button>
-        </Link>
+        {!sessionToken ? (
+          <>
+            <Link href="/register">
+              <Button variant="outline">Register</Button>
+            </Link>
+            <Link href="/login">
+              <Button variant="outline">Login</Button>
+            </Link>
+          </>
+        ) : (
+          <LogoutButton />
+        )}
       </div>
     </nav>
   );
