@@ -52,7 +52,7 @@ function ShoppingCartIcon(props) {
 
 export function ProductCard({ product }) {
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card/40 backdrop-blur-md border-muted/60">
+    <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-card/40 backdrop-blur-md border-muted/60">
       <div className="relative w-full h-[280px] bg-white group p-6 flex items-center justify-center border-b border-border/40">
         <Image
           src={product.image}
@@ -66,12 +66,12 @@ export function ProductCard({ product }) {
       <CardHeader className="flex-none p-5 pb-3">
         <div className="flex justify-between items-start gap-4">
           <CardTitle
-            className="line-clamp-2 text-base leading-snug font-bold"
+            className="line-clamp-2 text-base leading-snug font-semibold"
             title={product.title}
           >
             {product.title}
           </CardTitle>
-          <p className="text-xl font-black text-primary shrink-0">
+          <p className="text-xl font-medium text-primary shrink-0">
             ${product.price.toFixed(2)}
           </p>
         </div>

@@ -23,7 +23,7 @@ export default async function ProductsPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="mb-12 md:mb-16 space-y-4 text-center md:text-left">
-          <h1 className="text-4xl font-black tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground to-foreground/60">
+          <h1 className="text-4xl font-medium tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground to-foreground/60">
             Our Collection
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0">
